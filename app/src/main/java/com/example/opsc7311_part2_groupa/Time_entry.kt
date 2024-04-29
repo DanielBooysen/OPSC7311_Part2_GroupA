@@ -28,14 +28,17 @@ class Time_entry : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
+        //Initialize database for database opperations
         val dbhelp = DBClass(applicationContext)
         var db = dbhelp.writableDatabase
         val dbr = dbhelp.readableDatabase
+        //Get all saved gategories to display for user selection
         val getCategoriesQuery = "SELECT * FROM categories"
         val catResult = dbr.rawQuery(getCategoriesQuery, null)
 
         val categories = mutableListOf<String>("Select option")
 
+        //Saves all saved gategories to local variable for use
         if (catResult != null && catResult.moveToFirst()) {
             val categoryIndex = catResult.getColumnIndex("category")
             if (categoryIndex != -1) {
@@ -51,6 +54,7 @@ class Time_entry : AppCompatActivity() {
             Toast.makeText(this, "Categories empty", Toast.LENGTH_SHORT).show()
         }
 
+        //Creates a popup window to input a new category and save it to the database
         val categoryButton = findViewById<Button>(R.id.addCategory)
         categoryButton.setOnClickListener {
             val builder: android.app.AlertDialog.Builder = android.app.AlertDialog.Builder(this)
@@ -72,12 +76,14 @@ class Time_entry : AppCompatActivity() {
             builder.show()
         }
 
+        //Get all saved time entries
         val queryEntries = "SELECT category, time FROM entries"
         val entrResult = dbr.rawQuery(queryEntries, null)
 
         val entriesList = mutableListOf<Pair<String, String>>()
         val entryList = findViewById<ListView>(R.id.timeEntryList)
 
+        //Get all saved time entries and display them to the user
         if (entrResult != null && entrResult.moveToFirst()) {
             val categoryIndex = entrResult.getColumnIndex("category")
             val timeEntryIndex = entrResult.getColumnIndex("time_entry")
@@ -96,6 +102,7 @@ class Time_entry : AppCompatActivity() {
             Toast.makeText(this, "Entries empty", Toast.LENGTH_SHORT).show()
         }
 
+        //Adapter to display the entries
         val adapter = ArrayAdapter<Pair<String, String>>(
             this,
             android.R.layout.simple_list_item_1,
@@ -106,16 +113,17 @@ class Time_entry : AppCompatActivity() {
 
         val categoriesSpinner = findViewById<Spinner>(R.id.categoryPicker)
 
+        //Add categories to the spinner for display
         val categoryAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, categories)
         categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         categoriesSpinner.adapter = categoryAdapter
-
 
         val startHourSpinner = findViewById<Spinner>(R.id.hourStart)
         val endHourSpinner = findViewById<Spinner>(R.id.hourEnd)
         val startMinuteSpinner = findViewById<Spinner>(R.id.minuteStart)
         val endMinuteSpinner = findViewById<Spinner>(R.id.minuteEnd)
 
+        //Adapters to dislpay the time entry options for users
         val hourAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, hours)
         val minuteAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, minutes)
         startHourSpinner.adapter = hourAdapter
@@ -125,6 +133,7 @@ class Time_entry : AppCompatActivity() {
 
         val workTimeDisplay = findViewById<TextView>(R.id.workTimeView)
 
+        //calculates the time spent on a gategory and saves it to the database
         val submitEntry = findViewById<Button>(R.id.submitTimeEntry)
         submitEntry.setOnClickListener {
             val startHour = startHourSpinner.selectedItem.toString().toInt()
