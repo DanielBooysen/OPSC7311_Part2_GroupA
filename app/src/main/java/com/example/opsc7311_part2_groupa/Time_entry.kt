@@ -2,8 +2,11 @@ package com.example.opsc7311_part2_groupa
 
 import android.content.ContentValues
 import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
+import android.view.Menu
+import android.view.MenuItem
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
@@ -12,6 +15,7 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 
 
 class Time_entry : AppCompatActivity() {
@@ -20,6 +24,9 @@ class Time_entry : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_time_entry)
+
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
 
         val dbhelp = DBClass(applicationContext)
         var db = dbhelp.writableDatabase
@@ -141,5 +148,30 @@ class Time_entry : AppCompatActivity() {
             data.put("category", categoryChosen)
             val rs:Long = db.insert("entries", null, data)
         }
+    }
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.time_entrymenu, menu)
+        return true
+    }
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu_item9 -> {
+                startActivity(Intent(this, Homepage::class.java))
+                return true
+            }
+            R.id.menu_item10 -> {
+                startActivity(Intent(this, Goal::class.java))
+                return true
+            }
+            R.id.menu_item11 -> {
+                startActivity(Intent(this, Login::class.java))
+                return true
+            }
+            R.id.menu_item12 -> {
+                startActivity(Intent(this, Total_hours::class.java))
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

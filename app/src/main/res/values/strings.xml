@@ -29,4 +29,6 @@
     <string name="manual_time_entry">Manual Time Entry</string>
     <string name="category">Category</string>
     <string name="work_time">Work time</string>
+    <string name="total_hours">Total hours</string>
+    <string name="homepage">Homepage</string>
 </resources>

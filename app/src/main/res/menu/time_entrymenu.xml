@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_item1"
-        android:title="@string/time_entry"
+        android:id="@+id/menu_item9"
+        android:title="@string/homepage"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/menu_item2"
+        android:id="@+id/menu_item10"
         android:title="@string/goal"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/menu_item4"
+        android:id="@+id/menu_item11"
         android:title="@string/total_hours"
         app:showAsAction="never"/>
     <item
-        android:id="@+id/menu_item3"
+        android:id="@+id/menu_item12"
         android:title="@string/logout"
         app:showAsAction="never"/>
 </menu>

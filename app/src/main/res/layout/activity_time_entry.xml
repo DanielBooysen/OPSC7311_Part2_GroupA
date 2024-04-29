@@ -18,23 +18,25 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="409dp"
-        android:layout_height="51dp"
-        android:layout_gravity="start"
-        android:layout_marginBottom="680dp"
-        android:background="#FFEB3B"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_scrollFlags="enterAlways|scroll"
-        app:logo="@drawable/epocharchitect_modified"
-        app:title="Time Entry"
-        app:titleTextColor="@color/black">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        tools:ignore="MissingConstraints">
 
-    </androidx.appcompat.widget.Toolbar>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="413dp"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_gravity="center_vertical"
+            android:layout_marginBottom="60dp"
+            android:background="#FFEB3B"
+            app:layout_scrollFlags="enterAlways|scroll"
+            app:logo="@drawable/epocharchitect_modified"
+            app:title="Time entry"
+            app:titleTextColor="@color/black">
+
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <Button
         android:id="@+id/submitTimeEntry"

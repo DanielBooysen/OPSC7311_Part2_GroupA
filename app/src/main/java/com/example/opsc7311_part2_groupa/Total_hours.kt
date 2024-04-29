@@ -1,53 +1,40 @@
 package com.example.opsc7311_part2_groupa
 
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
-import androidx.appcompat.app.AppCompatActivity
-import com.example.opsc7311_part2_groupa.databinding.ActivityHomepageBinding
 
-
-class Homepage : AppCompatActivity() {
-    private lateinit var bind: ActivityHomepageBinding
+class Total_hours : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        bind= ActivityHomepageBinding.inflate(layoutInflater)
-        setContentView(bind.root)
+        setContentView(R.layout.activity_total_hours)
 
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-
-        val value=intent.getStringExtra("username")
-        bind.username.text=value
-
-        bind.logout.setOnClickListener {
-            startActivity(Intent(this,Login::class.java))
-        }
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        menuInflater.inflate(R.menu.main_menu, menu)
+        menuInflater.inflate(R.menu.total_hoursmenu, menu)
         return true
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.menu_item1 -> {
+            R.id.menu_item13 -> {
                 startActivity(Intent(this, Time_entry::class.java))
                 return true
             }
-            R.id.menu_item2 -> {
+            R.id.menu_item14-> {
                 startActivity(Intent(this, Goal::class.java))
                 return true
             }
-            R.id.menu_item3 -> {
-                startActivity(Intent(this, Login::class.java))
+            R.id.menu_item15 -> {
+                startActivity(Intent(this, Homepage::class.java))
                 return true
             }
-            R.id.menu_item4 -> {
-                startActivity(Intent(this, Total_hours::class.java))
+            R.id.menu_item16 -> {
+                startActivity(Intent(this, Login::class.java))
                 return true
             }
         }

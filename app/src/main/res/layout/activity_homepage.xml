@@ -33,7 +33,6 @@
             app:titleTextColor="@color/black">
 
         </androidx.appcompat.widget.Toolbar>
-    </com.google.android.material.appbar.AppBarLayout>
 
         <TextView
             android:id="@+id/textView4"
@@ -52,6 +51,15 @@
             android:text="@string/username"
             android:textSize="23sp"
             android:textStyle="bold|italic" />
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/welcome2" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
         <LinearLayout
             android:id="@+id/lin2"
             android:layout_width="match_parent"
