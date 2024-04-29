@@ -55,8 +55,9 @@ class Time_entry : AppCompatActivity() {
 
             builder.setPositiveButton("OK", DialogInterface.OnClickListener { dialog, which ->
                 categories.add(input.getText().toString())
-                val query = "INSERT INTO categories VALUES (category, " + input.getText().toString() + ")"
-                val insert = db.rawQuery(query, null)
+                val data = ContentValues()
+                data.put("category", input.getText().toString())
+                val rs = db.insert("categories", null, data)
             })
             builder.setNegativeButton("Cancel",
                 DialogInterface.OnClickListener { dialog, which -> dialog.cancel() })
