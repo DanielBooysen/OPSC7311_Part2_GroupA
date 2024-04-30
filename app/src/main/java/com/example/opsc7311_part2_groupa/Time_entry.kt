@@ -132,6 +132,8 @@ class Time_entry : AppCompatActivity() {
         endMinuteSpinner.adapter = minuteAdapter
 
         val workTimeDisplay = findViewById<TextView>(R.id.workTimeView)
+        val descriptionView = findViewById<TextView>(R.id.descriptionView)
+        val dateView = findViewById<TextView>(R.id.dateView)
 
         //calculates the time spent on a gategory and saves it to the database
         val submitEntry = findViewById<Button>(R.id.submitTimeEntry)
@@ -141,6 +143,8 @@ class Time_entry : AppCompatActivity() {
             val startMinute = startMinuteSpinner.selectedItem.toString().toInt()
             val endMinute = endMinuteSpinner.selectedItem.toString().toInt()
             val categoryChosen = categoriesSpinner.selectedItem.toString()
+            val date = dateView.text.toString()
+            val description = descriptionView.text.toString()
 
             val startTime = startHour * 60 + startMinute
             val endTime = endHour * 60 + endMinute
@@ -156,6 +160,8 @@ class Time_entry : AppCompatActivity() {
             val data = ContentValues()
             data.put("time", workTime)
             data.put("category", categoryChosen)
+            data.put("description", description)
+            data.put("date", date)
             val rs:Long = db.insert("entries", null, data)
         }
     }
@@ -184,4 +190,5 @@ class Time_entry : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
+
 }

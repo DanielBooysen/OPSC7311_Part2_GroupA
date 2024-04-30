@@ -31,4 +31,7 @@
     <string name="work_time">Work time</string>
     <string name="total_hours">Total hours</string>
     <string name="homepage">Homepage</string>
+    <string name="view_photo">View Photo</string>
+    <string name="date">Date:</string>
+    <string name="description">Description</string>
 </resources>

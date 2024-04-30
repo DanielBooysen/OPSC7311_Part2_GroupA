@@ -2,21 +2,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <item
-        android:id="@+id/menu_item1"
-        android:title="@string/time_entry"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/menu_item2"
-        android:title="@string/goal"
-        app:showAsAction="never"/>
-    <item
-        android:id="@+id/menu_item4"
-        android:title="@string/total_hours"
+        android:id="@+id/list_item"
+        android:title="List"
         app:showAsAction="never"/>
     <item
         android:id="@+id/menu_item3"
         android:title="@string/logout"
         app:showAsAction="never"/>
-
 </menu>
