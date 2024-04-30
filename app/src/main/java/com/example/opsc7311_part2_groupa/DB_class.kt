@@ -19,6 +19,8 @@ class DBClass(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, 
         private val TABLE_ENTRIES = "entries"
         private val TIME_ENTRY = "time"
         private val CATEGORY_ENTRY = "category"
+        private val DATE_ENTRY = "date"
+        private val DESCRIPTION_ENTRY = "description"
     }
 
     override fun onCreate(db: SQLiteDatabase?) {
@@ -33,6 +35,8 @@ class DBClass(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, 
         val timeEntries = ("CREATE TABLE " + TABLE_ENTRIES + "("
                 + TIME_ENTRY + " TEXT,"
                 + CATEGORY_ENTRY + " TEXT,"
+                + DATE_ENTRY + " TEXT,"
+                + DESCRIPTION_ENTRY + " TEXT,"
                 + "FOREIGN KEY(" + CATEGORY_ENTRY + ") REFERENCES " + TABLE_CATEGORIES + "(" + CATEGORY + ")" + ")")
         db?.execSQL(timeEntries)
     }
