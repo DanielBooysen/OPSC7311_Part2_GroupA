@@ -15,6 +15,9 @@
         android:theme="@style/Theme.OPSC7311_Part2_GroupA"
         tools:targetApi="31">
         <activity
+            android:name=".item_total_hours"
+            android:exported="false" />
+        <activity
             android:name=".List_view"
             android:exported="false" />
         <activity

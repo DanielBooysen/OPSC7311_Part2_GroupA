@@ -38,7 +38,7 @@ class Time_entry : AppCompatActivity() {
 
         val categories = mutableListOf<String>("Select option")
 
-        //Saves all saved gategories to local variable for use
+        //saved 
         if (catResult != null && catResult.moveToFirst()) {
             val categoryIndex = catResult.getColumnIndex("category")
             if (categoryIndex != -1) {
@@ -135,7 +135,7 @@ class Time_entry : AppCompatActivity() {
         val descriptionView = findViewById<TextView>(R.id.descriptionView)
         val dateView = findViewById<TextView>(R.id.dateView)
 
-        //calculates the time spent on a gategory and saves it to the database
+        //calculates the time spent on a category and saves it to the database
         val submitEntry = findViewById<Button>(R.id.submitTimeEntry)
         submitEntry.setOnClickListener {
             val startHour = startHourSpinner.selectedItem.toString().toInt()
@@ -162,7 +162,11 @@ class Time_entry : AppCompatActivity() {
             data.put("category", categoryChosen)
             data.put("description", description)
             data.put("date", date)
-            val rs:Long = db.insert("entries", null, data)
+            val rs: Long = db.insert("entries", null, data)
+
+            setContentView(R.layout.item_timesheet_entry)
+
+
         }
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -183,10 +187,11 @@ class Time_entry : AppCompatActivity() {
                 startActivity(Intent(this, Login::class.java))
                 return true
             }
-            R.id.menu_item12 -> {
-                startActivity(Intent(this, Total_hours::class.java))
+            R.id.menu_item11 -> {
+                startActivity(Intent(this, ListView::class.java))
                 return true
             }
+
         }
         return super.onOptionsItemSelected(item)
     }

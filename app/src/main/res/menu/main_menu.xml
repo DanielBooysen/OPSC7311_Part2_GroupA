@@ -7,6 +7,10 @@
         android:title="@string/time_entry"
         app:showAsAction="never"/>
     <item
+        android:id="@+id/menu_item5"
+        android:title="@string/list_view"
+        app:showAsAction="never"/>
+    <item
         android:id="@+id/menu_item2"
         android:title="@string/goal"
         app:showAsAction="never"/>
@@ -18,5 +22,6 @@
         android:id="@+id/menu_item3"
         android:title="@string/logout"
         app:showAsAction="never"/>
+
 
 </menu>

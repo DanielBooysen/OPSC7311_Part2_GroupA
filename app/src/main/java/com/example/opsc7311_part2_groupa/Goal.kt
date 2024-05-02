@@ -29,10 +29,7 @@ class Goal : AppCompatActivity() {
                 startActivity(Intent(this, Homepage::class.java))
                 return true
             }
-            R.id.menu_item7 -> {
-                startActivity(Intent(this, Total_hours::class.java))
-                return true
-            }
+
             R.id.menu_item8 -> {
                 startActivity(Intent(this, Login::class.java))
                 return true

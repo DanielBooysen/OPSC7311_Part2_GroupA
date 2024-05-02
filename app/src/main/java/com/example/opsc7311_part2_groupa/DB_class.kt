@@ -12,22 +12,15 @@ class DBClass(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, 
         const val KEY_UNAME = "username"
         const val KEY_MAIL = "email"
         const val KEY_PWORD = "password"
-
         const val TABLE_CATEGORIES = "categories"
         const val CATEGORY = "category"
-
-
         const val TABLE_ENTRIES = "entries"
         const val TIME_ENTRY = "time"
         const val CATEGORY_ENTRY = "category"
         const val DATE_ENTRY = "date"
         const val DESCRIPTION_ENTRY = "description"
 
-        private val TABLE_ENTRIES = "entries"
-        private val TIME_ENTRY = "time"
-        private val CATEGORY_ENTRY = "category"
-        private val DATE_ENTRY = "date"
-        private val DESCRIPTION_ENTRY = "description"
+
 
     }
 

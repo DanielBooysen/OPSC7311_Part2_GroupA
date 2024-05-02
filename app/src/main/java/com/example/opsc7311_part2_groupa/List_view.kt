@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
@@ -12,14 +13,13 @@ import androidx.recyclerview.widget.RecyclerView
 
 class List_view : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
-    override fun onCreate(savedInstanceState: Bundle?) {
 
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_view)
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
-       
-      
+
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
@@ -30,40 +30,41 @@ class List_view : AppCompatActivity() {
         val adapter = EntryAdapter(entriesList)
         recyclerView.adapter = adapter
 
+        adapter.notifyDataSetChanged()
     }
 
+    @SuppressLint("Range")
+    private fun getTimesheetEntriesFromDatabase(): List<TimeSheetEntry> {
+        val entries = mutableListOf<TimeSheetEntry>()
 
-        @SuppressLint("Range")
-        private fun getTimesheetEntriesFromDatabase(): List<TimeSheetEntry> {
-            val db = DBClass(applicationContext).readableDatabase
-            val entries = mutableListOf<TimeSheetEntry>()
+        val db = DBClass(applicationContext).readableDatabase
+        val query = "SELECT * FROM ${DBClass.TABLE_ENTRIES}"
+        db.rawQuery(query, null).use { cursor ->
+            while (cursor.moveToNext()) {
+                val startTime = cursor.getString(cursor.getColumnIndex(DBClass.TIME_ENTRY))
+                val category = cursor.getString(cursor.getColumnIndex(DBClass.CATEGORY_ENTRY))
+                val description = cursor.getString(cursor.getColumnIndex(DBClass.DESCRIPTION_ENTRY))
+                val date = cursor.getString(cursor.getColumnIndex(DBClass.DATE_ENTRY))
 
-            val query = "SELECT * FROM ${DBClass.TABLE_ENTRIES}"
-            val cursor = db.rawQuery(query, null)
-
-            if (cursor != null && cursor.moveToFirst()) {
-                do {
-                    val startTime = cursor.getString(cursor.getColumnIndex(DBClass.TIME_ENTRY))
-                    val category = cursor.getString(cursor.getColumnIndex(DBClass.CATEGORY_ENTRY))
-                    val description = "" // You need to retrieve description from the database
-                    val date = "" // You need to retrieve date from the database
-                    val entry = TimeSheetEntry(startTime, category, description, date)
-                    entries.add(entry)
-                } while (cursor.moveToNext())
-                cursor.close()
+                val entry = TimeSheetEntry(startTime, category, description, date)
+                entries.add(entry)
             }
-
-            db.close()
-
-            return entries
+        }
+        db.close()
+        // Log the retrieved entries
+        for (entry in entries) {
+            Log.d("DB_ENTRIES", entry.toString())
         }
 
+        return entries
+    }
 
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
         return true
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menu_item1 -> {
@@ -81,13 +82,7 @@ class List_view : AppCompatActivity() {
                 return true
             }
 
-            R.id.menu_item4 -> {
-                startActivity(Intent(this, Total_hours::class.java))
-                return true
-            }
         }
         return super.onOptionsItemSelected(item)
-
-        
     }
 }

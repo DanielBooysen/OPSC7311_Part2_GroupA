@@ -46,10 +46,7 @@ class Homepage : AppCompatActivity() {
                 startActivity(Intent(this, Login::class.java))
                 return true
             }
-            R.id.menu_item4 -> {
-                startActivity(Intent(this, Total_hours::class.java))
-                return true
-            }
+
         }
         return super.onOptionsItemSelected(item)
     }
