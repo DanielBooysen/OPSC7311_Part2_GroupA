@@ -23,11 +23,7 @@ class DBClass(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, 
         const val DATE_ENTRY = "date"
         const val DESCRIPTION_ENTRY = "description"
 
-        private val TABLE_ENTRIES = "entries"
-        private val TIME_ENTRY = "time"
-        private val CATEGORY_ENTRY = "category"
-        private val DATE_ENTRY = "date"
-        private val DESCRIPTION_ENTRY = "description"
+
 
     }
 
