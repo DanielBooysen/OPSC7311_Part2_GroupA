@@ -31,6 +31,7 @@
     <string name="work_time">Work time</string>
     <string name="total_hours">Total hours</string>
     <string name="homepage">Homepage</string>
+
     <string name="add_goal">Add a daily goal:</string>
     <string name="add_goal_date">Please enter the date:</string>
     <string name="goal_date">Date</string>
@@ -41,4 +42,9 @@
     <string name="add_goal_click">Add</string>
     <string name="view_goal">View daily goals</string>
     <string name="view_goal_click">View</string>
+
+    <string name="view_photo">View Photo</string>
+    <string name="date">Date:</string>
+    <string name="description">Description</string>
+
 </resources>

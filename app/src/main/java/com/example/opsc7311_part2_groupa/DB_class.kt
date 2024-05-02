@@ -6,22 +6,31 @@ import android.database.sqlite.SQLiteOpenHelper
 class DBClass(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
-        private val DATABASE_VERSION = 1
-        private val DATABASE_NAME = "EpochDatabase"
-        private val TABLE_CONTACTS = "user"
-        private val KEY_UNAME = "username"
-        private val KEY_MAIL = "email"
-        private val KEY_PWORD = "password"
+        const val DATABASE_VERSION = 1
+        const val DATABASE_NAME = "EpochDatabase"
+        const val TABLE_CONTACTS = "user"
+        const val KEY_UNAME = "username"
+        const val KEY_MAIL = "email"
+        const val KEY_PWORD = "password"
 
-        private val TABLE_CATEGORIES = "categories"
-        private val CATEGORY = "category"
+        const val TABLE_CATEGORIES = "categories"
+        const val CATEGORY = "category"
+
+
+        const val TABLE_ENTRIES = "entries"
+        const val TIME_ENTRY = "time"
+        const val CATEGORY_ENTRY = "category"
+        const val DATE_ENTRY = "date"
+        const val DESCRIPTION_ENTRY = "description"
 
         private val TABLE_ENTRIES = "entries"
         private val TIME_ENTRY = "time"
         private val CATEGORY_ENTRY = "category"
         private val DATE_ENTRY = "date"
         private val DESCRIPTION_ENTRY = "description"
+
     }
+
 
     override fun onCreate(db: SQLiteDatabase?) {
         val loginDetails = ("CREATE TABLE " + TABLE_CONTACTS + "("
@@ -42,9 +51,9 @@ class DBClass(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, 
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        db!!.execSQL("DROP TABLE IF EXISTS " + TABLE_CONTACTS)
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_CATEGORIES)
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ENTRIES)
+        db!!.execSQL("DROP TABLE IF EXISTS $TABLE_CONTACTS")
+        db.execSQL("DROP TABLE IF EXISTS $TABLE_CATEGORIES")
+        db.execSQL("DROP TABLE IF EXISTS $TABLE_ENTRIES")
         onCreate(db)
     }
 }
