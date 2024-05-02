@@ -42,11 +42,6 @@
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout"
         app:layout_constraintVertical_bias="0.333">
 
-        <ListView
-            android:id="@+id/GoalList"
-            android:layout_width="match_parent"
-            android:layout_height="265dp" />
-
         <LinearLayout
             android:id="@+id/AddGoalLayout"
             android:layout_width="match_parent"
@@ -126,6 +121,17 @@
                 android:text="@string/add_goal_click" />
 
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="34dp"
+            android:text="@string/view_goal" />
+
+        <ListView
+            android:id="@+id/GoalList"
+            android:layout_width="match_parent"
+            android:layout_height="232dp" />
 
     </LinearLayout>
 

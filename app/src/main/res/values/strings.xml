@@ -39,7 +39,7 @@
     <string name="add_goal_max">Please enter the maximum hours to work:</string>
     <string name="goal_max">Maximum goal hours</string>
     <string name="add_goal_click">Add</string>
-    <string name="view_goal">View daily goals</string>
+    <string name="view_goal">View your daily goals here:</string>
     <string name="view_goal_click">View</string>
     <string name="view_photo">View Photo</string>
     <string name="date">Date:</string>
