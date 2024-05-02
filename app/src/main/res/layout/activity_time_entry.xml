@@ -21,8 +21,10 @@
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="409dp"
         android:layout_height="67dp"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="2dp">
+        android:layout_marginStart="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
