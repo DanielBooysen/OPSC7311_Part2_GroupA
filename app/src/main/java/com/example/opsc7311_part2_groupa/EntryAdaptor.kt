@@ -14,11 +14,15 @@ val dummyEntriesList = listOf(
     // Add more dummy entries as needed
 )
 
+<<<<<<< HEAD:app/src/main/java/com/example/opsc7311_part2_groupa/EntryAdaptor.kt
 fun TimeSheetEntry(startTime: String, endTime: String, date: String, description: String) {
 
 }
 
 class EntryAdapter(private val entries: List<Unit>) : RecyclerView.Adapter<EntryAdapter.EntryViewHolder>() {
+=======
+class EntryAdapter(private val entries: List<TimeSheetEntry>) : RecyclerView.Adapter<EntryAdapter.EntryViewHolder>() {
+>>>>>>> ea0d2d5e023892d8dc960eb909167fdbdb74af57:app/src/main/java/com/example/opsc7311_part2_groupa/EntryAdapter.kt
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): EntryViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_timesheet_entry, parent, false)
@@ -47,6 +51,14 @@ class EntryAdapter(private val entries: List<Unit>) : RecyclerView.Adapter<Entry
             descriptionTextView.text = entry.description
         }
     }
+<<<<<<< HEAD:app/src/main/java/com/example/opsc7311_part2_groupa/EntryAdaptor.kt
+=======
+
+
+}
+
+
+>>>>>>> ea0d2d5e023892d8dc960eb909167fdbdb74af57:app/src/main/java/com/example/opsc7311_part2_groupa/EntryAdapter.kt
 
 
 }
