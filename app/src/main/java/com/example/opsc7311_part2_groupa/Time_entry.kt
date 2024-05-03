@@ -123,7 +123,7 @@ class Time_entry : AppCompatActivity() {
         val startMinuteSpinner = findViewById<Spinner>(R.id.minuteStart)
         val endMinuteSpinner = findViewById<Spinner>(R.id.minuteEnd)
 
-        //Adapters to dislpay the time entry options for users
+        //Adapters to display the time entry options for users
         val hourAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, hours)
         val minuteAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, minutes)
         startHourSpinner.adapter = hourAdapter
@@ -164,7 +164,7 @@ class Time_entry : AppCompatActivity() {
             data.put("date", date)
             val rs: Long = db.insert("entries", null, data)
 
-            setContentView(R.layout.item_timesheet_entry)
+
 
 
         }

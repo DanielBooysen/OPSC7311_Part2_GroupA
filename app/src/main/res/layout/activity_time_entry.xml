@@ -13,9 +13,10 @@
         android:layout_height="48dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="286dp"
-        android:layout_marginBottom="130dp"
+        android:layout_marginBottom="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.appbar.AppBarLayout
@@ -46,8 +47,8 @@
         android:id="@+id/submitTimeEntry"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="15dp"
-        android:layout_marginBottom="80dp"
+        android:layout_marginEnd="148dp"
+        android:layout_marginBottom="136dp"
         android:text="@string/submit_entry"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -56,8 +57,9 @@
         android:id="@+id/categoryPicker"
         android:layout_width="231dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="164dp"
-        android:layout_marginBottom="296dp"
+        android:layout_marginEnd="180dp"
+        android:layout_marginBottom="484dp"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -67,20 +69,21 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="65dp"
         android:layout_marginEnd="65dp"
-        android:layout_marginBottom="456dp"
+        android:layout_marginBottom="568dp"
         android:text="@string/manual_time_entry"
         android:textAllCaps="false"
         android:textSize="34sp"
+
+        android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ListView
         android:id="@+id/timeEntryList"
-        android:layout_width="408dp"
-        android:layout_height="145dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="516dp"
+        android:layout_width="422dp"
+        android:layout_height="118dp"
+        android:layout_marginEnd="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -88,8 +91,8 @@
         android:id="@+id/addCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="289dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="484dp"
         android:text="@string/add_category"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -98,8 +101,8 @@
         android:id="@+id/minuteStart"
         android:layout_width="109dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="164dp"
-        android:layout_marginBottom="130dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginBottom="300dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -107,8 +110,8 @@
         android:id="@+id/hourEnd"
         android:layout_width="109dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="286dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="296dp"
+        android:layout_marginBottom="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -116,8 +119,8 @@
         android:id="@+id/minuteEnd"
         android:layout_width="109dp"
         android:layout_height="48dp"
-        android:layout_marginEnd="164dp"
-        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="156dp"
+        android:layout_marginBottom="200dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -125,10 +128,11 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="301dp"
-        android:layout_marginBottom="180dp"
+        android:layout_marginEnd="224dp"
+        android:layout_marginBottom="360dp"
         android:text="@string/start_time"
         android:textSize="20sp"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -136,77 +140,60 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="311dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginEnd="236dp"
+        android:layout_marginBottom="264dp"
         android:text="@string/end_time"
         android:textSize="20sp"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="312dp"
-        android:layout_marginBottom="344dp"
+        android:layout_width="84dp"
+        android:layout_height="35dp"
+        android:layout_marginEnd="184dp"
+        android:layout_marginBottom="540dp"
         android:text="@string/category"
         android:textSize="20sp"
+        android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/workTimeView"
-        android:layout_width="109dp"
-        android:layout_height="31dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="144dp"
+        android:layout_width="94dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="28dp"
+        android:layout_marginBottom="256dp"
+        android:background="@drawable/rectangle"
         android:text="@string/work_time"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="352dp"
-        android:layout_marginBottom="262dp"
-        android:text="Date"
-        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/dateView"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginEnd="188dp"
-        android:layout_marginBottom="217dp"
+        android:layout_width="122dp"
+        android:layout_height="37dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="392dp"
+        android:background="@drawable/borders"
         android:ems="10"
         android:inputType="text"
         android:text="30/04/2024"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="296dp"
-        android:layout_marginBottom="429dp"
-        android:text="Description"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
     <EditText
         android:id="@+id/descriptionView"
-        android:layout_width="wrap_content"
-        android:layout_height="48dp"
-        android:layout_marginEnd="186dp"
-        android:layout_marginBottom="377dp"
+        android:layout_width="236dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="168dp"
+        android:layout_marginBottom="392dp"
+        android:background="@drawable/rectangle"
         android:ems="10"
+        android:hint="Description"
         android:inputType="text"
-        android:text="Description"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
