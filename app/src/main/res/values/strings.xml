@@ -47,4 +47,8 @@
     <string name="list_view">List View</string>
     <string name="category_name">Category Name</string>
     <string name="totalhours">Total Hours</string>
+<<<<<<< HEAD
+=======
+    <string name="add_photo_click">Add a Photo</string>
+>>>>>>> parent of ea0d2d5 (Merge branch 'master' of https://github.com/DanielBooysen/OPSC7311_Part2_GroupA)
 </resources>

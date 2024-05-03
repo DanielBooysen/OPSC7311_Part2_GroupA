@@ -6,18 +6,14 @@ import android.database.sqlite.SQLiteOpenHelper
 class DBClass(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
 
     companion object {
-        //Database version and name
         const val DATABASE_VERSION = 1
         const val DATABASE_NAME = "EpochDatabase"
-        //User table
         const val TABLE_CONTACTS = "user"
         const val KEY_UNAME = "username"
         const val KEY_MAIL = "email"
         const val KEY_PWORD = "password"
-        //Categories table
         const val TABLE_CATEGORIES = "categories"
         const val CATEGORY = "category"
-        //Entries table
         const val TABLE_ENTRIES = "entries"
         const val TIME_ENTRY = "time"
         const val CATEGORY_ENTRY = "category"
@@ -26,28 +22,29 @@ class DBClass(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, 
 
 
 
+
+
     }
 
 
-    override fun onCreate(db: SQLiteDatabase?) { // creates tables when database is created
+    override fun onCreate(db: SQLiteDatabase?) {
         val loginDetails = ("CREATE TABLE " + TABLE_CONTACTS + "("
                 + KEY_UNAME + " TEXT,"
-                + KEY_MAIL + " TEXT,"   //stores login details
+                + KEY_MAIL + " TEXT,"
                 + KEY_PWORD + " TEXT" + ")")
         db?.execSQL(loginDetails)
         val categories = ("CREATE TABLE " + TABLE_CATEGORIES + "("
-                + CATEGORY + " TEXT" + ")") //stores categories
+                + CATEGORY + " TEXT" + ")")
         db?.execSQL(categories)
         val timeEntries = ("CREATE TABLE " + TABLE_ENTRIES + "("
                 + TIME_ENTRY + " TEXT,"
-                + CATEGORY_ENTRY + " TEXT," //stores time entries
+                + CATEGORY_ENTRY + " TEXT,"
                 + DATE_ENTRY + " TEXT,"
                 + DESCRIPTION_ENTRY + " TEXT,"
                 + "FOREIGN KEY(" + CATEGORY_ENTRY + ") REFERENCES " + TABLE_CATEGORIES + "(" + CATEGORY + ")" + ")")
         db?.execSQL(timeEntries)
     }
 
-    //drops and recreates tables when database is upgraded
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         db!!.execSQL("DROP TABLE IF EXISTS $TABLE_CONTACTS")
         db.execSQL("DROP TABLE IF EXISTS $TABLE_CATEGORIES")

@@ -4,6 +4,10 @@ import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.DialogInterface
 import android.content.Intent
+<<<<<<< HEAD
+=======
+import android.net.Uri
+>>>>>>> parent of ea0d2d5 (Merge branch 'master' of https://github.com/DanielBooysen/OPSC7311_Part2_GroupA)
 import android.os.Bundle
 import android.text.InputType
 import android.view.Menu
@@ -15,10 +19,15 @@ import android.widget.ListView
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+<<<<<<< HEAD
+=======
+import androidx.appcompat.app.AlertDialog
+>>>>>>> parent of ea0d2d5 (Merge branch 'master' of https://github.com/DanielBooysen/OPSC7311_Part2_GroupA)
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
 
 
 class Time_entry : AppCompatActivity() {
@@ -42,7 +51,11 @@ class Time_entry : AppCompatActivity() {
 
         val categories = mutableListOf<String>("Select option")
 
+<<<<<<< HEAD
 
+=======
+        //saved 
+>>>>>>> parent of ea0d2d5 (Merge branch 'master' of https://github.com/DanielBooysen/OPSC7311_Part2_GroupA)
         if (catResult != null && catResult.moveToFirst()) {
             val categoryIndex = catResult.getColumnIndex("category")
             if (categoryIndex != -1) {
@@ -193,9 +206,28 @@ class Time_entry : AppCompatActivity() {
                 startActivity(Intent(this, ListView::class.java))
                 return true
             }
+<<<<<<< HEAD
 
         }
         return super.onOptionsItemSelected(item)
     }
 
+=======
+
+        }
+        return super.onOptionsItemSelected(item)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == GALLERY_REQUEST_CODE && resultCode == RESULT_OK && data != null) {
+            selectedImageUri = data.data
+        }
+    }
+
+    companion object {
+        private const val GALLERY_REQUEST_CODE = 1001
+    }
+
+>>>>>>> parent of ea0d2d5 (Merge branch 'master' of https://github.com/DanielBooysen/OPSC7311_Part2_GroupA)
 }

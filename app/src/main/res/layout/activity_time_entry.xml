@@ -7,7 +7,6 @@
     tools:context=".Time_entry"
     tools:ignore="VisualLintBounds">
 
-
     <Spinner
         android:id="@+id/hourStart"
         android:layout_width="109dp"
@@ -175,7 +174,7 @@
     <EditText
         android:id="@+id/dateView"
         android:layout_width="122dp"
-        android:layout_height="49dp"
+        android:layout_height="37dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="392dp"
         android:background="@drawable/borders"
