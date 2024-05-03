@@ -1,19 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:padding="16dp">
 
+
     <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="409dp"
-        android:layout_height="67dp"
-        android:layout_marginStart="2dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        android:layout_width="match_parent"
+        android:layout_height="69dp">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
@@ -31,35 +27,31 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
+    <!-- Your other views for displaying entry details -->
 
     <TextView
         android:id="@+id/textStartTime"
-        android:layout_width="match_parent"
+        android:layout_width="219dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="18sp"
-        android:textStyle="bold" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textEndTime"
-        android:layout_width="match_parent"
+        android:layout_width="219dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textCategory"
-        android:layout_width="match_parent"
+        android:layout_width="219dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/textDescription"
-        android:layout_width="match_parent"
+        android:layout_width="219dp"
         android:layout_height="wrap_content"
-        android:textColor="@color/black"
-        android:textSize="16sp" />
+        android:textSize="20sp" />
+
 
 </LinearLayout>
-

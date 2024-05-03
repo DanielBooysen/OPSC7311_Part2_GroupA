@@ -16,6 +16,6 @@
         app:showAsAction="never"/>
     <item
         android:id="@+id/menu_item16"
-        android:title="@string/list_view"
+        android:title="@string/logout"
         app:showAsAction="never"/>
 </menu>

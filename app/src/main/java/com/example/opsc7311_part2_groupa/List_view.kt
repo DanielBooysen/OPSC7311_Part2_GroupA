@@ -73,25 +73,12 @@ class List_view : AppCompatActivity() {
                 return true
             }
 
-<<<<<<< HEAD
            
             R.id.menu_item3 -> {
                 startActivity(Intent(this, Goal::class.java))
                 return true
             }
 
-=======
-            R.id.menu_item2 -> {
-                startActivity(Intent(this,activity_total_hours::class.java))
-                return true
-            }
-
-            R.id.menu_item3 -> {
-                startActivity(Intent(this, Goal::class.java))
-                return true
-            }
-
->>>>>>> ea0d2d5e023892d8dc960eb909167fdbdb74af57
             R.id.menu_item4 -> {
                 startActivity(Intent(this, Homepage::class.java))
                 return true
@@ -115,12 +102,8 @@ class List_view : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-<<<<<<< HEAD
 }
 
 private fun <E> MutableList<E>.add(element: Unit) {
 
 }
-=======
-}
->>>>>>> ea0d2d5e023892d8dc960eb909167fdbdb74af57
