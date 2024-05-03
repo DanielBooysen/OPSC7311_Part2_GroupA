@@ -4,6 +4,7 @@ import android.content.ContentValues
 import android.content.DialogInterface
 import android.content.Intent
 import android.net.Uri
+import android.database.sqlite.SQLiteDatabase
 import android.os.Bundle
 import android.text.InputType
 import android.view.Menu
@@ -15,10 +16,11 @@ import android.widget.ListView
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+
 import androidx.appcompat.app.AlertDialog
+
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-
 
 class Time_entry : AppCompatActivity() {
     private var hours = arrayOf(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23)
@@ -41,7 +43,7 @@ class Time_entry : AppCompatActivity() {
 
         val categories = mutableListOf<String>("Select option")
 
-        //saved 
+        //saved
         if (catResult != null && catResult.moveToFirst()) {
             val categoryIndex = catResult.getColumnIndex("category")
             if (categoryIndex != -1) {
@@ -192,7 +194,7 @@ class Time_entry : AppCompatActivity() {
     }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.menu_item9 -> {
+            R.id.menu_item8 -> {
                 startActivity(Intent(this, Homepage::class.java))
                 return true
             }
@@ -208,10 +210,10 @@ class Time_entry : AppCompatActivity() {
                 startActivity(Intent(this, ListView::class.java))
                 return true
             }
-
+            else -> return super.onOptionsItemSelected(item)
         }
-        return super.onOptionsItemSelected(item)
     }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -225,3 +227,6 @@ class Time_entry : AppCompatActivity() {
     }
 
 }
+
+
+

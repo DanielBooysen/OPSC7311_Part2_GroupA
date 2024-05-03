@@ -1,6 +1,7 @@
 package com.example.opsc7311_part2_groupa
 
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 class DBClass(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, DATABASE_VERSION) {
@@ -24,10 +25,7 @@ class DBClass(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, 
         const val MIN_HOURS = "min_hours"
         const val MAX_HOURS = "max_hours"
 
-
-
     }
-
 
     override fun onCreate(db: SQLiteDatabase?) {
         val loginDetails = ("CREATE TABLE " + TABLE_CONTACTS + "("
@@ -58,5 +56,28 @@ class DBClass(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, 
         db.execSQL("DROP TABLE IF EXISTS $TABLE_ENTRIES")
         db.execSQL("DROP TABLE IF EXISTS $TABLE_GOALS")
         onCreate(db)
+    }
+    fun getTotalHoursByCategory(startDate: String?, endDate: String?): Map<String, Double> {
+        val totalHoursByCategory = mutableMapOf<String, Double>()
+        val db = readableDatabase
+        val query =
+            "SELECT $CATEGORY_ENTRY, SUM($TIME_ENTRY) AS total_hours FROM $TABLE_ENTRIES " +
+                    "WHERE $DATE_ENTRY BETWEEN '$startDate' AND '$endDate' " +
+                    "GROUP BY $CATEGORY_ENTRY"
+        val cursor: Cursor = db.rawQuery(query, null)
+        if (cursor.moveToFirst()) {
+            val categoryIndex = cursor.getColumnIndex(CATEGORY_ENTRY)
+            val totalHoursIndex = cursor.getColumnIndex("total_hours")
+            if (categoryIndex != -1 && totalHoursIndex != -1) {
+                do {
+                    val category = cursor.getString(categoryIndex)
+                    val totalHours = cursor.getDouble(totalHoursIndex)
+                    totalHoursByCategory[category] = totalHours
+                } while (cursor.moveToNext())
+            }
+        }
+        cursor.close()
+        db.close()
+        return totalHoursByCategory
     }
 }
