@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ListView
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,16 +23,14 @@ class List_view : AppCompatActivity() {
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        // Create dummy entries list
-        val dummyEntriesList = listOf(
-            TimeSheetEntry("09:00 AM", "Work", "Project A", "2024-04-28"),
-            TimeSheetEntry("10:30 AM", "Meeting", "Team meeting", "2024-04-28"),
-            TimeSheetEntry("01:00 PM", "Lunch", "Lunch break", "2024-04-28")
-        )
+        // Retrieve timesheet entries from the database
+        val entriesList = getTimesheetEntriesFromDatabase()
 
-        // Create and set adapter with dummy entries list
-        val adapter = EntryAdapter(dummyEntriesList)
+        // Create and set adapter
+        val adapter = EntryAdapter(entriesList)
         recyclerView.adapter = adapter
+
+        adapter.notifyDataSetChanged()
     }
 
     @SuppressLint("Range")
@@ -54,12 +51,14 @@ class List_view : AppCompatActivity() {
             }
         }
         db.close()
-
-        // Log the number of retrieved entries
-        Log.d("ENTRY_DEBUG", "Number of entries: ${entries.size}")
+        // Log the retrieved entries
+        for (entry in entries) {
+            Log.d("DB_ENTRIES", entry.toString())
+        }
 
         return entries
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
@@ -73,54 +72,17 @@ class List_view : AppCompatActivity() {
                 return true
             }
 
-<<<<<<< HEAD
-           
-            R.id.menu_item3 -> {
-                startActivity(Intent(this, Goal::class.java))
-                return true
-            }
-
-=======
             R.id.menu_item2 -> {
-                startActivity(Intent(this,activity_total_hours::class.java))
-                return true
-            }
-
-            R.id.menu_item3 -> {
                 startActivity(Intent(this, Goal::class.java))
                 return true
             }
 
->>>>>>> ea0d2d5e023892d8dc960eb909167fdbdb74af57
-            R.id.menu_item4 -> {
-                startActivity(Intent(this, Homepage::class.java))
-                return true
-            }
-
-            R.id.menu_item5 -> {
+            R.id.menu_item3 -> {
                 startActivity(Intent(this, Login::class.java))
                 return true
             }
 
-            R.id.menu_item6 -> {
-                startActivity(Intent(this, List_view::class.java))
-                return true
-            }
-
-            R.id.menu_item7 -> {
-                // Handle Logout
-                return true
-            }
         }
         return super.onOptionsItemSelected(item)
     }
-
-<<<<<<< HEAD
 }
-
-private fun <E> MutableList<E>.add(element: Unit) {
-
-}
-=======
-}
->>>>>>> ea0d2d5e023892d8dc960eb909167fdbdb74af57

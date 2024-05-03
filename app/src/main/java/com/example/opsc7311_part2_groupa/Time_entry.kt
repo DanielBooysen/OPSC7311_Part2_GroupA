@@ -1,6 +1,5 @@
 package com.example.opsc7311_part2_groupa
 
-import android.annotation.SuppressLint
 import android.content.ContentValues
 import android.content.DialogInterface
 import android.content.Intent
@@ -17,14 +16,11 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 
 
 class Time_entry : AppCompatActivity() {
     private var hours = arrayOf(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23)
     private var minutes = arrayOf(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59)
-    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_time_entry)
@@ -36,13 +32,13 @@ class Time_entry : AppCompatActivity() {
         val dbhelp = DBClass(applicationContext)
         var db = dbhelp.writableDatabase
         val dbr = dbhelp.readableDatabase
-//Get all saved gategories to display for user selection
+        //Get all saved gategories to display for user selection
         val getCategoriesQuery = "SELECT * FROM categories"
         val catResult = dbr.rawQuery(getCategoriesQuery, null)
 
         val categories = mutableListOf<String>("Select option")
 
-
+        //saved 
         if (catResult != null && catResult.moveToFirst()) {
             val categoryIndex = catResult.getColumnIndex("category")
             if (categoryIndex != -1) {
@@ -58,7 +54,7 @@ class Time_entry : AppCompatActivity() {
             Toast.makeText(this, "Categories empty", Toast.LENGTH_SHORT).show()
         }
 
-//Creates a popup window to input a new category and save it to the database
+        //Creates a popup window to input a new category and save it to the database
         val categoryButton = findViewById<Button>(R.id.addCategory)
         categoryButton.setOnClickListener {
             val builder: android.app.AlertDialog.Builder = android.app.AlertDialog.Builder(this)
@@ -80,14 +76,14 @@ class Time_entry : AppCompatActivity() {
             builder.show()
         }
 
-//Get all saved time entries
+        //Get all saved time entries
         val queryEntries = "SELECT category, time FROM entries"
         val entrResult = dbr.rawQuery(queryEntries, null)
 
         val entriesList = mutableListOf<Pair<String, String>>()
         val entryList = findViewById<ListView>(R.id.timeEntryList)
 
-//Get all saved time entries and display them to the user
+        //Get all saved time entries and display them to the user
         if (entrResult != null && entrResult.moveToFirst()) {
             val categoryIndex = entrResult.getColumnIndex("category")
             val timeEntryIndex = entrResult.getColumnIndex("time_entry")
@@ -106,7 +102,7 @@ class Time_entry : AppCompatActivity() {
             Toast.makeText(this, "Entries empty", Toast.LENGTH_SHORT).show()
         }
 
-//Adapter to display the entries
+        //Adapter to display the entries
         val adapter = ArrayAdapter<Pair<String, String>>(
             this,
             android.R.layout.simple_list_item_1,
@@ -117,7 +113,7 @@ class Time_entry : AppCompatActivity() {
 
         val categoriesSpinner = findViewById<Spinner>(R.id.categoryPicker)
 
-//Add categories to the spinner for display
+        //Add categories to the spinner for display
         val categoryAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, categories)
         categoryAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         categoriesSpinner.adapter = categoryAdapter
@@ -127,7 +123,7 @@ class Time_entry : AppCompatActivity() {
         val startMinuteSpinner = findViewById<Spinner>(R.id.minuteStart)
         val endMinuteSpinner = findViewById<Spinner>(R.id.minuteEnd)
 
-//Adapters to display the time entry options for users
+        //Adapters to display the time entry options for users
         val hourAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, hours)
         val minuteAdapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, minutes)
         startHourSpinner.adapter = hourAdapter
@@ -139,7 +135,7 @@ class Time_entry : AppCompatActivity() {
         val descriptionView = findViewById<TextView>(R.id.descriptionView)
         val dateView = findViewById<TextView>(R.id.dateView)
 
-//calculates the time spent on a category and saves it to the database
+        //calculates the time spent on a category and saves it to the database
         val submitEntry = findViewById<Button>(R.id.submitTimeEntry)
         submitEntry.setOnClickListener {
             val startHour = startHourSpinner.selectedItem.toString().toInt()
@@ -168,8 +164,10 @@ class Time_entry : AppCompatActivity() {
             data.put("date", date)
             val rs: Long = db.insert("entries", null, data)
 
-        }
 
+
+
+        }
     }
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.time_entrymenu, menu)
