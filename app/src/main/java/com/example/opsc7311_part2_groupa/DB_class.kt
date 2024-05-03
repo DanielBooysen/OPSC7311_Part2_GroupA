@@ -19,6 +19,10 @@ class DBClass(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, 
         const val CATEGORY_ENTRY = "category"
         const val DATE_ENTRY = "date"
         const val DESCRIPTION_ENTRY = "description"
+        const val TABLE_GOALS = "goals"
+        const val DATE_GOAL = "date"
+        const val MIN_HOURS = "min_hours"
+        const val MAX_HOURS = "max_hours"
 
 
 
@@ -41,12 +45,18 @@ class DBClass(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, 
                 + DESCRIPTION_ENTRY + " TEXT,"
                 + "FOREIGN KEY(" + CATEGORY_ENTRY + ") REFERENCES " + TABLE_CATEGORIES + "(" + CATEGORY + ")" + ")")
         db?.execSQL(timeEntries)
+        val goalsTable = ("CREATE TABLE " + TABLE_GOALS + "("
+                + DATE_GOAL + " TEXT,"
+                + MIN_HOURS + " REAL,"
+                + MAX_HOURS + " REAL" + ")")
+        db?.execSQL(goalsTable)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
         db!!.execSQL("DROP TABLE IF EXISTS $TABLE_CONTACTS")
         db.execSQL("DROP TABLE IF EXISTS $TABLE_CATEGORIES")
         db.execSQL("DROP TABLE IF EXISTS $TABLE_ENTRIES")
+        db.execSQL("DROP TABLE IF EXISTS $TABLE_GOALS")
         onCreate(db)
     }
 }
