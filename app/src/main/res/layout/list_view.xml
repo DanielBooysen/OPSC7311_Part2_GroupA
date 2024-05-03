@@ -8,8 +8,6 @@
     android:padding="16dp"
     tools:context=".List_view">
 
-<<<<<<< HEAD
-=======
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="413dp"
@@ -40,5 +38,17 @@
         app:layout_constraintVertical_bias="0.0"
         tools:listitem="@layout/item_timesheet_entry" />
 
->>>>>>> ea0d2d5e023892d8dc960eb909167fdbdb74af57
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
