@@ -14,6 +14,7 @@ import android.widget.ListView
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 
@@ -162,7 +163,15 @@ class Time_entry : AppCompatActivity() {
             data.put("category", categoryChosen)
             data.put("description", description)
             data.put("date", date)
-            db.insert("entries", null, data)
+            val insert: Long = db.insert("entries", null, data)
+
+            if(!insert.equals(-1)){
+                val ad = AlertDialog.Builder(this)
+                ad.setTitle("Message")
+                ad.setMessage("Success")
+                ad.setPositiveButton("Ok", null)
+                ad.show()
+            }
 
             setContentView(R.layout.item_timesheet_entry)
 
