@@ -68,7 +68,7 @@ class Time_entry : AppCompatActivity() {
                 categories.add(input.getText().toString())
                 val data = ContentValues()
                 data.put("category", input.getText().toString())
-                val rs = db.insert("categories", null, data)
+                db.insert("categories", null, data)
             })
             builder.setNegativeButton("Cancel",
                 DialogInterface.OnClickListener { dialog, which -> dialog.cancel() })
@@ -162,10 +162,9 @@ class Time_entry : AppCompatActivity() {
             data.put("category", categoryChosen)
             data.put("description", description)
             data.put("date", date)
-            val rs = db.insert("entries", null, data)
+            db.insert("entries", null, data)
 
             setContentView(R.layout.item_timesheet_entry)
-
 
         }
     }
