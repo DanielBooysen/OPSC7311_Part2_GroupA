@@ -162,7 +162,7 @@ class Time_entry : AppCompatActivity() {
             data.put("category", categoryChosen)
             data.put("description", description)
             data.put("date", date)
-            val rs: Long = db.insert("entries", null, data)
+            val rs = db.insert("entries", null, data)
 
             setContentView(R.layout.item_timesheet_entry)
 
