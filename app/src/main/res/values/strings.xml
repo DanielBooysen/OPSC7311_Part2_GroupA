@@ -47,4 +47,5 @@
     <string name="list_view">List View</string>
     <string name="category_name">Category Name</string>
     <string name="totalhours">Total Hours</string>
+    <string name="add_photo_click">Add a Photo</string>
 </resources>

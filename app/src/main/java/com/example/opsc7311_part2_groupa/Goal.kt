@@ -50,7 +50,7 @@ class Goal : AppCompatActivity() {
 
                 val rs: Long = db.insert(TABLE_GOALS, null, data)
                 if (rs != -1L) {
-                    goals.add("Date: $date, Min Hours: $minHours, Max Hours: $maxHours")
+                    goals.add("Date: $date, Minimum Hours: $minHours, Maximum Hours: $maxHours")
                     adapter.notifyDataSetChanged()
                 } else {
                     Toast.makeText(this, "Failed to add goal", Toast.LENGTH_SHORT).show()
@@ -80,7 +80,7 @@ class Goal : AppCompatActivity() {
                     val date = rs.getString(dateIndex)
                     val minHours = rs.getFloat(minHoursIndex)
                     val maxHours = rs.getFloat(maxHoursIndex)
-                    goals.add("Date: $date, Min Hours: $minHours, Max Hours: $maxHours")
+                    goals.add("Date: $date, Minimum Hours: $minHours, Maximum Hours: $maxHours")
                 } while (rs.moveToNext())
             } else {
             }
