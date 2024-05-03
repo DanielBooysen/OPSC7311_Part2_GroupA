@@ -24,6 +24,8 @@ class DBClass(context: Context): SQLiteOpenHelper(context, DATABASE_NAME, null, 
 
 
 
+
+
     }
 
 

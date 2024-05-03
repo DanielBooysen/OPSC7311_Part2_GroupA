@@ -7,6 +7,9 @@ import android.content.Intent
 <<<<<<< HEAD
 =======
 import android.net.Uri
+<<<<<<< HEAD
+>>>>>>> parent of ea0d2d5 (Merge branch 'master' of https://github.com/DanielBooysen/OPSC7311_Part2_GroupA)
+=======
 >>>>>>> parent of ea0d2d5 (Merge branch 'master' of https://github.com/DanielBooysen/OPSC7311_Part2_GroupA)
 import android.os.Bundle
 import android.text.InputType
@@ -20,6 +23,10 @@ import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+import androidx.appcompat.app.AlertDialog
+>>>>>>> parent of ea0d2d5 (Merge branch 'master' of https://github.com/DanielBooysen/OPSC7311_Part2_GroupA)
 =======
 import androidx.appcompat.app.AlertDialog
 >>>>>>> parent of ea0d2d5 (Merge branch 'master' of https://github.com/DanielBooysen/OPSC7311_Part2_GroupA)
@@ -27,6 +34,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
 
 
 
@@ -52,7 +60,11 @@ class Time_entry : AppCompatActivity() {
         val categories = mutableListOf<String>("Select option")
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+        //saved 
+>>>>>>> parent of ea0d2d5 (Merge branch 'master' of https://github.com/DanielBooysen/OPSC7311_Part2_GroupA)
 =======
         //saved 
 >>>>>>> parent of ea0d2d5 (Merge branch 'master' of https://github.com/DanielBooysen/OPSC7311_Part2_GroupA)
@@ -207,6 +219,7 @@ class Time_entry : AppCompatActivity() {
                 return true
             }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         }
         return super.onOptionsItemSelected(item)
@@ -214,6 +227,9 @@ class Time_entry : AppCompatActivity() {
 
 =======
 
+=======
+
+>>>>>>> parent of ea0d2d5 (Merge branch 'master' of https://github.com/DanielBooysen/OPSC7311_Part2_GroupA)
         }
         return super.onOptionsItemSelected(item)
     }
@@ -229,5 +245,8 @@ class Time_entry : AppCompatActivity() {
         private const val GALLERY_REQUEST_CODE = 1001
     }
 
+<<<<<<< HEAD
+>>>>>>> parent of ea0d2d5 (Merge branch 'master' of https://github.com/DanielBooysen/OPSC7311_Part2_GroupA)
+=======
 >>>>>>> parent of ea0d2d5 (Merge branch 'master' of https://github.com/DanielBooysen/OPSC7311_Part2_GroupA)
 }

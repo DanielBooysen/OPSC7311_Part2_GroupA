@@ -73,8 +73,12 @@ class List_view : AppCompatActivity() {
             }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
            
             R.id.menu_item3 -> {
+=======
+            R.id.menu_item2 -> {
+>>>>>>> parent of ea0d2d5 (Merge branch 'master' of https://github.com/DanielBooysen/OPSC7311_Part2_GroupA)
 =======
             R.id.menu_item2 -> {
 >>>>>>> parent of ea0d2d5 (Merge branch 'master' of https://github.com/DanielBooysen/OPSC7311_Part2_GroupA)
@@ -91,12 +95,16 @@ class List_view : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 }
 
 private fun <E> MutableList<E>.add(element: Unit) {
 
 }
+=======
+}
+>>>>>>> parent of ea0d2d5 (Merge branch 'master' of https://github.com/DanielBooysen/OPSC7311_Part2_GroupA)
 =======
 }
 >>>>>>> parent of ea0d2d5 (Merge branch 'master' of https://github.com/DanielBooysen/OPSC7311_Part2_GroupA)
