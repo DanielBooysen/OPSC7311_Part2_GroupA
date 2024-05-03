@@ -47,4 +47,9 @@
     <string name="list_view">List View</string>
     <string name="category_name">Category Name</string>
     <string name="totalhours">Total Hours</string>
+    <string name="category_category">Category</string>
+    <string name="endtime">End Time</string>
+    <string name="starttime">Start Time</string>
+    <string name="description_description">Description</string>
+    <string name="selected_date_format">%d-%02d-%02d</string>
 </resources>
